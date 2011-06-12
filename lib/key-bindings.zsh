@@ -25,6 +25,7 @@ bindkey "^[[3~" delete-char
 bindkey "^[3;5~" delete-char
 bindkey "\e[3~" delete-char
 
+
 # consider emacs keybindings:
 
 #bindkey -e  ## emacs key bindings
@@ -43,3 +44,23 @@ bindkey "\e[3~" delete-char
 ## Fix weird sequence that rxvt produces
 #bindkey -s '^[[Z' '\t'
 #
+
+# keybindings for vim keymap
+bindkey -v
+# alt-k, alt-j jump to lines starting with the same prefix
+bindkey "\ek" history-beginning-search-backward
+bindkey "\ej" history-beginning-search-forward
+
+# alt-h shows help on current command
+bindkey "\eh" run-help
+
+# alt-w replaces the first word on current line
+bindkey -s "\ew" "\e0cE"
+
+# alt-enter inserts continues current command on new line
+# hint: ^V^j also works, even in bash
+bindkey "\e" self-insert-unmeta
+
+bindkey "^H" backward-delete-char
+bindkey "^?" backward-delete-char
+bindkey "^W" backward-kill-word

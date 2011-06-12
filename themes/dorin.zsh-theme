@@ -9,8 +9,8 @@ autoload -Uz vcs_info
 # Add hook for calling vcs_info before each command.
 add-zsh-hook precmd vcs_info
 
-local reset="%{$FX[reset]%}"
-local bold="%{$FX[bold]%}"
+local reset="$FX[reset]"
+local bold="$FX[bold]"
 
 # Set vcs_info parameters.
 zstyle ':vcs_info:*:*' enable hg bzr git svn
@@ -33,14 +33,14 @@ typeset -A host_repr
 local hostname="%m"
 local hostname="${host_repr[${(%)hostname}]:-${(%)hostname}}"
 #local host="${SSH_TTY:+[%n@%m]}"
-local host="${bold}%{$FG[206]%}%n %{$fg[white]%}at %{$FG[206]%}$hostname${reset}"
-local host="${bold}%{$FG[227]%}%n %{$fg[white]%}at %{$FG[227]%}$hostname${reset}"
-local pwd="${bold}%{$FG[198]%}%5~${reset}"
+local host="${bold}$FG[206]%n %{$fg[white]%}at $FG[206]$hostname${reset}"
+local host="${bold}%{$FG[227]%}%n %{$fg[white]%}at $FG[227]$hostname${reset}"
+local pwd="${bold}$FG[198]%5~${reset}"
 local _in="${bold}in${reset}"
-local jobs="%(1j.$bold%{$FG[198]%}j:%j.)"
+local jobs="%(1j.$bold$FG[198]j:%j.)"
 local tty="${bold}%{$fg[white]%}%l"
 local prompt_end="${bold}%{$fg[white]%}%(!.#.$)"
 
 PROMPT="${time} ${host} $_in $pwd 
-%(?..%{$FG[198]%})${tty} ${prompt_end}${reset} "
+%(?..$FG[198])${tty} ${prompt_end}${reset} "
 RPROMPT="$jobs $return_code"'${vcs_info_msg_0_} ${vcs_info_msg_1_}'"$reset"

@@ -9,8 +9,10 @@ bindkey "^[m" copy-prev-shell-word
 setopt long_list_jobs
 
 ## pager
-if command -v vimpager &> /dev/null; then
+if [[ -x "${commands[vimpager]}" ]] &> /dev/null; then
     export PAGER=vimpager
+    export MANPAGER=vimpager
+    export GIT_PAGER=less
 else
     export PAGER=less
     export LESS=-R

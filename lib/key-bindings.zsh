@@ -64,3 +64,8 @@ bindkey "\e" self-insert-unmeta
 bindkey "^H" backward-delete-char
 bindkey "^?" backward-delete-char
 bindkey "^W" backward-kill-word
+
+# alt-p pipes to pager
+bindkey -s "\ep" "\eA | ${PAGER}"
+# alt-g pipes to grep
+bindkey -s "\eg" "\eA | grep "

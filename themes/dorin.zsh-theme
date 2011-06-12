@@ -44,3 +44,4 @@ local prompt_end="${bold}%{$fg[white]%}%(!.#.$)"
 PROMPT="${time} ${host} $_in $pwd $jobs
 %(?..$FG[198])${tty} ${prompt_end}${reset} "
 RPROMPT="$return_code"'${vcs_info_msg_0_} ${vcs_info_msg_1_}'"$reset"
+

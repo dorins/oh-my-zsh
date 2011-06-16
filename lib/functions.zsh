@@ -63,4 +63,5 @@ alias nuke='rm -r -v -I /tmp/trash/*'
 
 function cmdfu(){ curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext"; }
 
-alias weather="curl http://thefuckingweather.com/?zipcode=Iasi\&CELSIUS=yes 2>/dev/null|grep -A1 'div class=\"large\"'|tr '\n' ' '|sed 's/^.*\"large\" >\(..\)/\1/;s/&d.* <br \/>/°C - /;s/<br \/>/ /;s/<\/div.*$//';echo"
+alias weather="curl http://thefuckingweather.com/\?zipcode\=Iasi\&CELSIUS\=yes 2>/dev/null|grep -A1 'div class=\"large\"'|tr '\n' ' '|sed 's/^.*\"large\" >\(..\)/\1/;s/&d.* <br \/>/°C - /;s/<br \/>/ /;s/<\/div.*$//';echo"
+

@@ -65,7 +65,16 @@ bindkey "^H" backward-delete-char
 bindkey "^?" backward-delete-char
 bindkey "^W" backward-kill-word
 
+
+autoload -U   edit-command-line
+zle -N        edit-command-line
+bindkey '\ev' edit-command-line
+
+bindkey '\eq' push-line-or-edit
+
 # alt-p pipes to pager
 bindkey -s "\ep" "\eA | ${PAGER}"
 # alt-g pipes to grep
 bindkey -s "\eg" "\eA | grep "
+
+
